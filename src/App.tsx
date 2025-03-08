@@ -1,10 +1,10 @@
 function App() {
 
-    return (
-        <div className="text-3xl flex justify-center items-center mt-auto">
+  return (
+    <div className="text-3xl flex justify-center items-center mt-auto">
             Tailwind TEST
-        </div>
-    )
+    </div>
+  );
 }
 
-export default App
+export default App;
