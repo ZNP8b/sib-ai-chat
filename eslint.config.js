@@ -29,6 +29,7 @@ export default [
       // Дополнительное правило: можно добавить свои кастомные настройки
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
       indent: ['error', 2],
       'no-console': 'warn',
       'comma-dangle': ['error', 'always-multiline'],
