@@ -7,16 +7,20 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --fix",
-    "fix": "eslint . --fix && prettier --write .",
+    "fix": "prettier --write . && eslint . --fix",
     "preview": "vite preview"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.10.0",
     "@emotion/react": "^11.14.0",
+    "@hookform/resolvers": "^4.1.3",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0"
+    "react-hook-form": "^7.54.2",
+    "react-icons": "^5.5.0",
+    "react-router": "^7.3.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -36,6 +40,7 @@
     "tailwindcss": "^4.0.12",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.0",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
