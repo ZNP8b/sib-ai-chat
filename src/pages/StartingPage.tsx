@@ -5,7 +5,12 @@ const links = [
   { name: 'Главная', path: '/start', disabled: false },
   { name: 'CAPEC -> Техники', path: '/', disabled: false },
   { name: 'CAPEC -> CVE', path: '/', disabled: false },
-  { name: 'Чат с SIB AI', path: '/', disabled: true, description: 'В разработке' },
+  {
+    name: 'Чат с SIB AI',
+    path: '/',
+    disabled: true,
+    description: 'В разработке',
+  },
   // { name: 'Датасеты', path: '/datasets', role: 'admin' },
   // { name: 'Чекпоинты', path: '/checkpoints', role: 'admin' },
   // { name: 'Тренировка', path: '/training', role: 'admin' },
@@ -15,18 +20,18 @@ const links = [
 export function StartingPage() {
   return (
     <Container
-      paddingBottom="52px"
-      h="100%"
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
+      paddingBottom='52px'
+      h='100%'
+      display='flex'
+      flexDirection='column'
+      justifyContent='center'
     >
       <Container
-        padding="0"
-        borderRadius="2xl"
-        overflow="hidden"
-        bg="gray.100"
-        maxWidth="fit-content"
+        padding='0'
+        borderRadius='2xl'
+        overflow='hidden'
+        bg='gray.100'
+        maxWidth='fit-content'
         _dark={{ bg: 'gray.700' }}
       >
         {links.map(link => (
