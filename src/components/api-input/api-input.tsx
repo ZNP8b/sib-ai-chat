@@ -54,10 +54,10 @@ export function ApiInput() {
 
       <Button
         className='w-50'
-        colorPalette='gray'
         size='lg'
-        variant='surface'
+        variant='solid'
         type='submit'
+        rounded='lg'
       >
         Применить
       </Button>
