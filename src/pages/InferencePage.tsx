@@ -25,11 +25,10 @@ const InferencePage: React.FC = () => {
 
   const token = localStorage.getItem('authToken') || ''
 
-  const DEFAULT_BASE_URL =
-    localStorage
-      .getItem('apiUrl')
-      ?.replace(/^http:/, 'ws:')
-      .replace(/^https:/, 'wss:')
+  const DEFAULT_BASE_URL = localStorage
+    .getItem('apiUrl')
+    ?.replace(/^http:/, 'ws:')
+    .replace(/^https:/, 'wss:')
 
   const { messages, sendMessage, socket } = useWebSocket({
     path: '/ws/inference',
@@ -215,35 +214,35 @@ const InferencePage: React.FC = () => {
 
     setChatMessages([
       {
-        sender: "You",
-        text: "Напиши меры реагирования и меры ликвидации последствий к CVE-2025-1664: The Essential Blocks – Page Builder Gutenberg Blocks, Patterns & Templates plugin for WordPress is vulnerable to Stored Cross-Site Scripting",
-        timestamp: "10.02.2025"
+        sender: 'You',
+        text: 'Напиши меры реагирования и меры ликвидации последствий к CVE-2025-1664: The Essential Blocks – Page Builder Gutenberg Blocks, Patterns & Templates plugin for WordPress is vulnerable to Stored Cross-Site Scripting',
+        timestamp: '10.02.2025',
       },
       {
-        sender: "AI",
-        text: "Меры реагирования:  \n" +
-          "1. Немедленно деактивировать плагин Essential Blocks на всех сайтах, где он установлен.  \n" +
-          "2. Установить последнюю версию плагина после подтверждения наличия патча от разработчика.  \n" +
-          "3. Временно включить Web Application Firewall (WAF) с правилами для блокировки X-атак.  \n" +
-          "4. Провести аудит журналов доступа на предмет подозрительной активности, связанной с использованием плагина.  \n" +
-          "\n" +
-          "Меры ликвидации последствий:  \n" +
-          "1. Проверить и очистить все содержимое (посты, страницы, виджеты), созданное через уязвимый плагин, от внедренных скриптов.  \n" +
-          "2. Обновить учетные данные администраторов и пользователей с привилегированным доступом.  \n" +
-          "3. Выполнить полное сканирование сайта на наличие бэкдоров и других следов компрометации.  \n" +
-          "4. Сообщить пользователям о возможной утечке данных и рекомендовать сменить пароли.  \n" +
-          "5. Восстановить резервную копию сайта, созданную до эксплуатации уязвимости (при наличии).",
-        timestamp: "10.02.2025"
-      }
+        sender: 'AI',
+        text:
+          'Меры реагирования:  \n' +
+          '1. Немедленно деактивировать плагин Essential Blocks на всех сайтах, где он установлен.  \n' +
+          '2. Установить последнюю версию плагина после подтверждения наличия патча от разработчика.  \n' +
+          '3. Временно включить Web Application Firewall (WAF) с правилами для блокировки X-атак.  \n' +
+          '4. Провести аудит журналов доступа на предмет подозрительной активности, связанной с использованием плагина.  \n' +
+          '\n' +
+          'Меры ликвидации последствий:  \n' +
+          '1. Проверить и очистить все содержимое (посты, страницы, виджеты), созданное через уязвимый плагин, от внедренных скриптов.  \n' +
+          '2. Обновить учетные данные администраторов и пользователей с привилегированным доступом.  \n' +
+          '3. Выполнить полное сканирование сайта на наличие бэкдоров и других следов компрометации.  \n' +
+          '4. Сообщить пользователям о возможной утечке данных и рекомендовать сменить пароли.  \n' +
+          '5. Восстановить резервную копию сайта, созданную до эксплуатации уязвимости (при наличии).',
+        timestamp: '10.02.2025',
+      },
     ])
   }, [])
 
-
   return (
     <Layout>
-      <div className="container! mx-auto! px-4! py-8! flex! flex-col! h-[85vh]!">
+      <div className='container! mx-auto! px-4! py-8! flex! flex-col! h-[85vh]!'>
         {/* Поле сообщений */}
-        <div className="flex-grow! overflow-y-auto! bg-gray-100! p-4! rounded! shadow-md!">
+        <div className='flex-grow! overflow-y-auto! bg-gray-100! p-4! rounded! shadow-md!'>
           {chatMessages.map((msg, index) => (
             <div
               key={index}
@@ -255,7 +254,7 @@ const InferencePage: React.FC = () => {
                     : 'bg-red-100! text-red-900!'
               }`}
             >
-              <div className="text-sm! text-gray-500">{msg.timestamp}</div>
+              <div className='text-sm! text-gray-500'>{msg.timestamp}</div>
               <strong>{msg.sender}:</strong> {msg.text}
             </div>
           ))}
@@ -263,9 +262,9 @@ const InferencePage: React.FC = () => {
         </div>
 
         {/* Окно ввода */}
-        <div className="mt-4!">
+        <div className='mt-4!'>
           <textarea
-            className="border! rounded! w-full! p-2!"
+            className='border! rounded! w-full! p-2!'
             rows={3}
             placeholder={
               criticalError
