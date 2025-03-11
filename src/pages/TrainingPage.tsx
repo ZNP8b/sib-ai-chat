@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { startTraining } from '../api/training'
 import Spinner from '../components/common/Spinner'
 import { useWebSocket } from '../components/hooks/useWebSocket.ts'
-import Layout from '@/components/layout/Layout.tsx'
 
 const DEFAULT_MODEL = 'unsloth/Llama-3.2-3B-Instruct-bnb-4bit'
 
-const TrainingPage: React.FC = () => {
+const TrainingPage = () => {
   const [maxSeqLength, setMaxSeqLength] = useState(1024)
   const [maxSteps, setMaxSteps] = useState(15)
   const [numEpochs, setNumEpochs] = useState(1)
@@ -82,18 +81,13 @@ const TrainingPage: React.FC = () => {
     }
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem('authToken')
-    window.location.reload()
-  }
-
   // Фильтруем сообщения, убирая "ping: pong"
   const filteredMessages = messages.filter(
     msg => !(msg.ping === 'pong' || msg.status === 'ping'),
   )
 
   return (
-    <Layout onLogout={handleLogout}>
+    <>
       <h1 className='text-3xl font-bold mb-6'>Тренировка модели</h1>
       <div className='bg-gray-100 p-6 rounded shadow'>
         <h2 className='text-xl font-semibold mb-4'>Параметры тренировки</h2>
@@ -183,7 +177,7 @@ const TrainingPage: React.FC = () => {
         )}
         <div ref={messageEndRef}></div>
       </div>
-    </Layout>
+    </>
   )
 }
 

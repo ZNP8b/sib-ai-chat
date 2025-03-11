@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { getCheckpoints, deleteCheckpoint } from '../api/checkpoints'
 import Spinner from '../components/common/Spinner'
 import { loadModel } from '../api/training'
-import Layout from '@/components/layout/Layout.tsx'
 
 const DEFAULT_HF_MODEL = 'unsloth/Llama-3.2-3B-Instruct-bnb-4bit'
 
@@ -101,13 +100,8 @@ const LoadModelPage: React.FC = () => {
     fetchCheckpoints()
   }, [])
 
-  const handleLogout = () => {
-    localStorage.removeItem('authToken')
-    window.location.reload()
-  }
-
   return (
-    <Layout onLogout={handleLogout}>
+    <>
       <h1 className='text-2xl font-bold'>Загрузка модели</h1>
       <div className='mt-4'>
         {isFetching ? (
@@ -212,7 +206,7 @@ const LoadModelPage: React.FC = () => {
           </span>
         )}
       </div>
-    </Layout>
+    </>
   )
 }
 

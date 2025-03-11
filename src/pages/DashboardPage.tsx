@@ -1,10 +1,8 @@
-import Layout from '@/components/layout/Layout.tsx'
 import { Link } from 'react-router'
-import React from 'react'
 
-const DashboardPage: React.FC = () => {
+const DashboardPage = () => {
   return (
-    <Layout>
+    <>
       {/* Hero Section */}
       <div className='relative! bg-gradient-to-br from-purple-700 to-pink-500 text-white py-20! px-8! rounded-lg shadow-lg overflow-hidden!'>
         <div className='absolute! inset-0! opacity-30 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-purple-500 to-pink-700'></div>
@@ -107,7 +105,7 @@ const DashboardPage: React.FC = () => {
           </Link>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 

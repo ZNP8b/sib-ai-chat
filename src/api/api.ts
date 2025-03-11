@@ -9,11 +9,12 @@ export const api = axios.create({
   },
 })
 
+// TODO: удалить
 // Добавление JWT токена для авторизации
-api.interceptors.request.use(config => {
-  const token = localStorage.getItem('authToken')
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config
-})
+// api.interceptors.request.use(config => {
+//   const token = localStorage.getItem('authToken')
+//   if (token) {
+//     config.headers.Authorization = `Bearer ${token}`
+//   }
+//   return config
+// })
