@@ -29,7 +29,7 @@ jobs:
       - name: Сборка проекта
         run: yarn build
         env:
-          VITE_BASE: '/' # Убедитесь, что этот путь соответствует репозиторию
+          VITE_BASE: '/sib-ai-chat' # Убедитесь, что этот путь соответствует репозиторию
 
       - name: Настройка GitHub Pages
         uses: actions/configure-pages@v4
