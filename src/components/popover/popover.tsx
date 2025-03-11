@@ -9,19 +9,21 @@ interface PopoverProps {
 export function Popover({ children, description }: PopoverProps) {
   const [open, setOpen] = useState(false)
 
-  return <HoverCard.Root size="sm" open={open} onOpenChange={(e) => !!description && setOpen(e.open)}>
-    <HoverCard.Trigger asChild>
-      {children}
-    </HoverCard.Trigger>
-    <Portal>
-      <HoverCard.Positioner>
-        <HoverCard.Content maxWidth="240px">
-          <HoverCard.Arrow />
-          <Box>
-            {description}
-          </Box>
-        </HoverCard.Content>
-      </HoverCard.Positioner>
-    </Portal>
-  </HoverCard.Root>
+  return (
+    <HoverCard.Root
+      size='sm'
+      open={open}
+      onOpenChange={e => !!description && setOpen(e.open)}
+    >
+      <HoverCard.Trigger asChild>{children}</HoverCard.Trigger>
+      <Portal>
+        <HoverCard.Positioner>
+          <HoverCard.Content maxWidth='240px'>
+            <HoverCard.Arrow />
+            <Box>{description}</Box>
+          </HoverCard.Content>
+        </HoverCard.Positioner>
+      </Portal>
+    </HoverCard.Root>
+  )
 }

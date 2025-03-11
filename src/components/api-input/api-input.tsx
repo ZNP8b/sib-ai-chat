@@ -20,7 +20,7 @@ export function ApiInput() {
 
   const onSubmit: SubmitHandler<apiUrlInputType> = async data => {
     localStorage.setItem('apiUrl', data.apiUrl)
-    navigate('/')
+    navigate(0)
   }
 
   const {
