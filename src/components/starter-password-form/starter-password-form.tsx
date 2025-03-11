@@ -40,7 +40,7 @@ export function StarterPasswordForm() {
   }
 
   return (
-    <div className='flex h-full items-center justify-center'>
+    <div className='flex h-full items-center justify-center mt-[-65px]!'>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='flex flex-col gap-4 items-center'
