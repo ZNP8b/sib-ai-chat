@@ -5,6 +5,6 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/sib-ai-chat/',
+  base: '/',
   plugins: [tailwindcss(), react(), tsconfigPaths()],
 })
