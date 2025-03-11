@@ -1,0 +1,43 @@
+name: Deploy Vite to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Или другая ветка, из которой происходит деплой
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout репозитория
+        uses: actions/checkout@v4
+
+      - name: Установка Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'yarn'
+
+      - name: Установка зависимостей
+        run: yarn install --frozen-lockfile
+
+      - name: Сборка проекта
+        run: yarn build
+        env:
+          VITE_BASE: '/sib-ai-chat/' # Убедитесь, что этот путь соответствует репозиторию
+
+      - name: Настройка GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Загрузка артефактов
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      - name: Деплой на GitHub Pages
+        uses: actions/deploy-pages@v4
