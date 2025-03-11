@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useWebSocket } from '../components/hooks/useWebSocket.ts'
-import Layout from '@/components/layout/Layout.tsx'
 
 const DEFAULT_INSTRUCTION =
   'Вы — эксперт в области информационной безопасности, предоставляющий рекомендации по реагированию на кибератаки и ликвидации их последствий. На основании анализа предоставленных данных вы формируете четкие, структурированные меры, включая:\nреагирование (оперативные действия для нейтрализации угрозы);\nликвидацию последствий (устранение ущерба и восстановление систем);\nРезультаты вашей работы представлены в виде пошагового руководства, которое обеспечивает практическое применение предложенных мер техническими специалистами.'
@@ -239,63 +238,61 @@ const InferencePage: React.FC = () => {
   }, [])
 
   return (
-    <Layout>
-      <div className='container! mx-auto! px-4! py-8! flex! flex-col! h-[85vh]!'>
-        {/* Поле сообщений */}
-        <div className='flex-grow! overflow-y-auto! bg-gray-100! p-4! rounded! shadow-md!'>
-          {chatMessages.map((msg, index) => (
-            <div
-              key={index}
-              className={`mb-2! p-2! rounded ${
-                msg.sender === 'You'
-                  ? 'bg-blue-100! text-blue-900! self-end!'
-                  : msg.sender === 'AI'
-                    ? 'bg-green-100! text-green-900!'
-                    : 'bg-red-100! text-red-900!'
-              }`}
-            >
-              <div className='text-sm! text-gray-500'>{msg.timestamp}</div>
-              <strong>{msg.sender}:</strong> {msg.text}
-            </div>
-          ))}
-          <div ref={messageEndRef}></div>
-        </div>
-
-        {/* Окно ввода */}
-        <div className='mt-4!'>
-          <textarea
-            className='border! rounded! w-full! p-2!'
-            rows={3}
-            placeholder={
-              criticalError
-                ? 'Ошибка: Модель или токенизатор не подключены.'
-                : !isConnected
-                  ? 'Введите ваш текст...'
-                  : 'Подключение недоступно.'
-            }
-            value={inputText}
-            onChange={e => setInputText(e.target.value)}
-            // disabled={!isConnected || isLoading || criticalError}
-          ></textarea>
-          <button
-            onClick={handleSubmit}
-            className={`mt-2! w-full! px-4! py-2! rounded! ${
-              !!isConnected || isLoading || criticalError
-                ? 'bg-gray-500!'
-                : 'bg-purple-600!'
-            } text-white!`}
-            // disabled={!isConnected || isLoading || criticalError}
+    <div className='container! mx-auto! px-4! py-8! flex! flex-col! h-[85vh]!'>
+      {/* Поле сообщений */}
+      <div className='flex-grow! overflow-y-auto! bg-gray-100! p-4! rounded! shadow-md!'>
+        {chatMessages.map((msg, index) => (
+          <div
+            key={index}
+            className={`mb-2! p-2! rounded ${
+              msg.sender === 'You'
+                ? 'bg-blue-100! text-blue-900! self-end!'
+                : msg.sender === 'AI'
+                  ? 'bg-green-100! text-green-900!'
+                  : 'bg-red-100! text-red-900!'
+            }`}
           >
-            {/*{!isConnected*/}
-            {/*  ? 'Подключение недоступно'*/}
-            {/*  : isLoading*/}
-            {/*    ? 'Генерация...'*/}
-            {/*    : 'Отправить'}*/}
-            Отправить
-          </button>
-        </div>
+            <div className='text-sm! text-gray-500'>{msg.timestamp}</div>
+            <strong>{msg.sender}:</strong> {msg.text}
+          </div>
+        ))}
+        <div ref={messageEndRef}></div>
       </div>
-    </Layout>
+
+      {/* Окно ввода */}
+      <div className='mt-4!'>
+        <textarea
+          className='border! rounded! w-full! p-2!'
+          rows={3}
+          placeholder={
+            criticalError
+              ? 'Ошибка: Модель или токенизатор не подключены.'
+              : !isConnected
+                ? 'Введите ваш текст...'
+                : 'Подключение недоступно.'
+          }
+          value={inputText}
+          onChange={e => setInputText(e.target.value)}
+          // disabled={!isConnected || isLoading || criticalError}
+        ></textarea>
+        <button
+          onClick={handleSubmit}
+          className={`mt-2! w-full! px-4! py-2! rounded! ${
+            !!isConnected || isLoading || criticalError
+              ? 'bg-gray-500!'
+              : 'bg-purple-600!'
+          } text-white!`}
+          // disabled={!isConnected || isLoading || criticalError}
+        >
+          {/*{!isConnected*/}
+          {/*  ? 'Подключение недоступно'*/}
+          {/*  : isLoading*/}
+          {/*    ? 'Генерация...'*/}
+          {/*    : 'Отправить'}*/}
+          Отправить
+        </button>
+      </div>
+    </div>
   )
 }
 

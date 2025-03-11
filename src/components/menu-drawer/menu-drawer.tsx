@@ -1,7 +1,7 @@
 import { Button, CloseButton, Drawer, Portal } from '@chakra-ui/react'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 
-export function MenuDrawer() {
+export function MenuDrawer({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -25,12 +25,7 @@ export function MenuDrawer() {
             <Drawer.Header>
               <Drawer.Title>Меню</Drawer.Title>
             </Drawer.Header>
-            <Drawer.Body>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </Drawer.Body>
+            <Drawer.Body>{children}</Drawer.Body>
             <Drawer.CloseTrigger asChild>
               <CloseButton colorPalette='purple' size='sm' />
             </Drawer.CloseTrigger>
