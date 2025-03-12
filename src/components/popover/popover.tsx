@@ -14,13 +14,15 @@ export function Popover({ children, description }: PopoverProps) {
       size='sm'
       open={open}
       onOpenChange={e => !!description && setOpen(e.open)}
+      openDelay={200}
+      positioning={{ offset: { mainAxis: -5 } }}
     >
       <HoverCard.Trigger asChild>{children}</HoverCard.Trigger>
       <Portal>
         <HoverCard.Positioner>
           <HoverCard.Content maxWidth='240px'>
             <HoverCard.Arrow />
-            <Box>{description}</Box>
+            <Box fontSize='md'>{description}</Box>
           </HoverCard.Content>
         </HoverCard.Positioner>
       </Portal>
