@@ -9,9 +9,8 @@ export const links: Link[] = [
   { name: 'Главная', path: '/start', disabled: false },
   {
     name: 'CAPEC -> CVE',
-    path: '/',
-    disabled: true,
-    description: 'В разработке',
+    path: '/capec2cve',
+    disabled: false,
   },
   {
     name: 'Меры обнаружения, смягчения',
@@ -25,8 +24,4 @@ export const links: Link[] = [
     disabled: true,
     description: 'В разработке',
   },
-  // { name: 'Датасеты', path: '/datasets', role: 'admin' },
-  // { name: 'Чекпоинты', path: '/checkpoints', role: 'admin' },
-  // { name: 'Тренировка', path: '/training', role: 'admin' },
-  // { name: 'Загрузка модели', path: '/load-model', role: 'admin' },
 ]
