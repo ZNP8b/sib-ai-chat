@@ -1,9 +1,8 @@
 import { Redirect } from '@/components/redirect/redirect.tsx'
-import { StarterPasswordForm } from '@/components/starter-password-form/starter-password-form.tsx'
 import { useEffect, useState } from 'react'
 
 export function Home() {
-  const [isAuth] = useState(() => localStorage.getItem('isAuth'))
+  // const [isAuth] = useState(() => localStorage.getItem('isAuth'))
   const [apiUrl] = useState(() => localStorage.getItem('apiUrl'))
 
   useEffect(() => {
@@ -20,13 +19,5 @@ export function Home() {
     return await response.json()
   }
 
-  return (
-    <>
-      {isAuth ? (
-        <Redirect url={apiUrl ? '/start' : '/settings'} />
-      ) : (
-        <StarterPasswordForm />
-      )}
-    </>
-  )
+  return <Redirect url={apiUrl ? '/start' : '/settings'} />
 }

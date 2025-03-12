@@ -12,7 +12,7 @@ export function Provider(props: ColorModeProviderProps) {
     <HashRouter>
       <QueryClientProvider client={queryClient}>
         <ChakraProvider value={defaultSystem}>
-          <Theme colorPalette="purple">
+          <Theme colorPalette='purple'>
             <ColorModeProvider {...props} />
           </Theme>
         </ChakraProvider>
