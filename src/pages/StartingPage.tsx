@@ -10,7 +10,7 @@ export function StartingPage() {
       display='flex'
       flexDirection='column'
       justifyContent='center'
-      my="auto"
+      my='auto'
     >
       <Container
         padding='0'
