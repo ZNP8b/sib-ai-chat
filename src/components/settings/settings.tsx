@@ -32,14 +32,13 @@ export function Settings() {
   })
 
   return (
-    <Stack className='flex items-center justify-center h-full'>
-      <div className='flex items-center w-full'>
-        {/*<BackArrowIcon className='absolute! top-4 left-4' />*/}
-        <Text className='mt-[-74px]!' fontSize='32px' margin='auto'>
+    <Stack className='flex items-center justify-center h-full my-auto!'>
+      <div className='flex items-center absolute top-[5px]'>
+        <Text className='' fontSize='32px' margin='auto'>
           Настройки
         </Text>
       </div>
-      <div className='h-full flex flex-col justify-center items-center mt-[-56px]!'>
+      <div className='h-full flex flex-col justify-center items-center my-auto!'>
         <ApiInput />
         <div className='flex flex-col items-center'>
           <Button

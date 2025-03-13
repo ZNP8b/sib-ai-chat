@@ -11,7 +11,8 @@ function App() {
   return (
     <>
       <Stack
-        h='100vh'
+        h='full'
+        minHeight="100vh"
         bg={{ base: '#fafafa', _dark: '#242424' }}
         className='relative'
       >
@@ -22,6 +23,7 @@ function App() {
           paddingTop='4'
           paddingRight='4'
           paddingLeft='4'
+          h="full"
         >
           {apiUrl && <Sidebar links={links} />}
 
