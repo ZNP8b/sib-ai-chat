@@ -145,15 +145,33 @@ export function MitigationsDetectionsPage() {
         justify='center'
       >
         {mutation.isPending && <CapecToCveSkeleton />}
+      </Stack>
 
-        {!mutation.isPending && <Heading>Техники:</Heading>}
-
+      {!mutation.isPending && mutation.data && (
+        <Heading textAlign='center'>Техники:</Heading>
+      )}
+      <Stack
+        marginTop='30px'
+        gap='4'
+        direction='row'
+        wrap='wrap'
+        justify='center'
+      >
         {!mutation.isPending && (
           <Flex wrap='wrap' gap='4' justify='center' mb='40px'>
             <For each={mitigationsDetections?.techniques}>
-              {technique => (
-                <Card.Root width='320px' variant='elevated'>
-                  <Card.Body gap='2'>
+              {(technique, index) => (
+                <Card.Root
+                  key={technique.technique + index}
+                  width='320px'
+                  variant='elevated'
+                >
+                  <Card.Body
+                    gap='2'
+                    display='flex'
+                    direction='column'
+                    justifyContent='space-between'
+                  >
                     <Card.Title mb='2'>{technique.technique}</Card.Title>
                     <Card.Description>Этап: {technique.stage}</Card.Description>
                   </Card.Body>
@@ -162,14 +180,27 @@ export function MitigationsDetectionsPage() {
             </For>
           </Flex>
         )}
+      </Stack>
+      {!mutation.isPending && mutation.data && (
+        <Heading textAlign='center'>Меры смягчения:</Heading>
+      )}
 
-        {!mutation.isPending && <Heading>Меры смягчения:</Heading>}
-
+      <Stack
+        marginTop='30px'
+        gap='4'
+        direction='row'
+        wrap='wrap'
+        justify='center'
+      >
         {!mutation.isPending && (
           <Flex wrap='wrap' gap='4' justify='center'>
             <For each={mitigationsDetections?.mitigations}>
-              {mitigation => (
-                <Card.Root width='320px' variant='elevated'>
+              {(mitigation, index) => (
+                <Card.Root
+                  key={mitigation.mitigationId + index}
+                  width='320px'
+                  variant='elevated'
+                >
                   <Card.Body gap='2'>
                     <Card.Title mb='2'>{mitigation.mitigationId}</Card.Title>
                     <Card.Description lineClamp={3}>
@@ -212,14 +243,30 @@ export function MitigationsDetectionsPage() {
             </For>
           </Flex>
         )}
+      </Stack>
 
-        {!mutation.isPending && <Heading>Меры обнаружения:</Heading>}
+      {!mutation.isPending && mutation.data && (
+        <Heading textAlign='center' marginTop='40px'>
+          Меры обнаружения:
+        </Heading>
+      )}
 
+      <Stack
+        marginTop='30px'
+        gap='4'
+        direction='row'
+        wrap='wrap'
+        justify='center'
+      >
         {!mutation.isPending && (
           <Flex wrap='wrap' gap='4' justify='center' mb='40px'>
             <For each={mitigationsDetections?.detections}>
-              {detection => (
-                <Card.Root width='320px' variant='elevated'>
+              {(detection, index) => (
+                <Card.Root
+                  key={detection.detectionId + index}
+                  width='320px'
+                  variant='elevated'
+                >
                   <Card.Body gap='2'>
                     <Card.Title mb='2'>{detection.detectionId}</Card.Title>
                     <Card.Description lineClamp={3}>
