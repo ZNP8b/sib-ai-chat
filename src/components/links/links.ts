@@ -14,9 +14,8 @@ export const links: Link[] = [
   },
   {
     name: 'Меры обнаружения, смягчения',
-    path: '/',
-    disabled: true,
-    description: 'В разработке',
+    path: '/mitigations-detections',
+    disabled: false,
   },
   {
     name: 'Чат с SIB AI',
