@@ -19,8 +19,7 @@ export const links: Link[] = [
   },
   {
     name: 'Чат с SIB AI',
-    path: '/',
-    disabled: true,
-    description: 'В разработке',
+    path: '/chat',
+    disabled: false,
   },
 ]
