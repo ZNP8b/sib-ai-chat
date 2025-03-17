@@ -5,6 +5,7 @@ import { Home } from '@/components/home/home.tsx'
 import { StartingPage } from '@/pages/StartingPage.tsx'
 import { Capec2CVEPage } from '@/pages/Capec2CVEPage.tsx'
 import { MitigationsDetectionsPage } from '@/pages/MitigationsDetectionsPage.tsx'
+import { ChatPage } from '@/pages/ChatPage.tsx'
 
 export function RouteList() {
   return (
@@ -18,12 +19,7 @@ export function RouteList() {
           path='/mitigations-detections'
           element={<MitigationsDetectionsPage />}
         />
-        {/*<Route path='/dashboard' element={<DashboardPage />} />*/}
-        {/*<Route path='/datasets' element={<DatasetsPage />} />*/}
-        {/*<Route path='/checkpoints' element={<CheckpointsPage />} />*/}
-        {/*<Route path='/training' element={<TrainingPage />} />*/}
-        {/*<Route path='/load-model' element={<LoadModelPage />} />*/}
-        {/*<Route path='/inference' element={<InferencePage />} />*/}
+        <Route path='/chat' element={<ChatPage />} />
       </Route>
     </Routes>
   )
